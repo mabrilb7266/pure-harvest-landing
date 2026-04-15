@@ -22,8 +22,8 @@ const categories: Category[] = [
     subtitle: "Frutas y Verduras",
     image: huertoImg,
     products: [
-      { name: "Tomate Corazón de Buey", price: "4€/kg" },
-      { name: "Aguacate Hass", price: "5,50€/kg" },
+      { name: "Leche entera", price: "2,19€/L" },
+      { name: "Carne picada vacas de pasto", price: "9,99€/kg" },
       { name: "Manzana Fuji", price: "3€/kg" },
       { name: "Espinacas frescas", price: "2,50€/bolsa" },
       { name: "Zanahorias con rama", price: "2€/manojo" },
@@ -38,7 +38,7 @@ const categories: Category[] = [
       { name: "Lenteja Pardina", price: "3,20€/kg" },
       { name: "Quinoa Real", price: "5€/500g" },
       { name: "Arroz Integral", price: "2,80€/kg" },
-      { name: "Garbanzos Pedrosillano", price: "3,50€/kg" },
+      { name: "Garbanzos de pueblo", price: "2,69€/kg" },
     ],
   },
   {
@@ -46,10 +46,10 @@ const categories: Category[] = [
     subtitle: "Aceites y Gourmet",
     image: elixiresImg,
     products: [
-      { name: "Aceite de Oliva Virgen Extra", price: "12€/L" },
+      { name: "AOVE virgen extra en frío", price: "16,50€/L" },
       { name: "Miel de Bosque", price: "8€/tarro" },
       { name: "Almendras crudas", price: "6€/250g" },
-      { name: "Huevos camperos", price: "4,50€/docena" },
+      { name: "Huevos gallinas libres", price: "0,35€/ud" },
       { name: "Sal marina pura", price: "2€/kg" },
     ],
   },
