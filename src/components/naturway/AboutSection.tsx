@@ -1,7 +1,14 @@
+import { useScrollAnimate } from "@/hooks/use-scroll-animate";
+
 export default function AboutSection() {
+  const { ref, isVisible } = useScrollAnimate();
+
   return (
     <section id="nosotros" className="bg-sand py-20 md:py-28">
-      <div className="mx-auto max-w-3xl px-4 text-center">
+      <div
+        ref={ref}
+        className={`mx-auto max-w-3xl px-4 text-center ${isVisible ? "anim-fade-up" : "scroll-hidden"}`}
+      >
         <p className="text-primary text-sm tracking-[0.25em] uppercase mb-4 font-sans font-medium">
           Sobre nosotros
         </p>
