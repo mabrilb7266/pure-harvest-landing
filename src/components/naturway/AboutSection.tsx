@@ -10,7 +10,7 @@ export default function AboutSection() {
         </h2>
         <div className="w-16 h-px bg-primary mx-auto mb-8" />
         <p className="text-muted-foreground text-lg md:text-xl leading-relaxed font-light">
-          En Naturae Vía recuperamos el origen. Creemos en la sabiduría de la tierra y en el
+          En NaturWay recuperamos el origen. Creemos en la sabiduría de la tierra y en el
           respeto a los ciclos naturales, ofreciendo alimentos que alimentan el cuerpo y el alma.
         </p>
         <p className="mt-8 font-serif text-primary italic text-xl md:text-2xl">
