@@ -1,8 +1,17 @@
+import { useScrollAnimate } from "@/hooks/use-scroll-animate";
+
 export default function LocationSection() {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimate();
+  const { ref: infoRef, isVisible: infoVisible } = useScrollAnimate();
+  const { ref: mapRef, isVisible: mapVisible } = useScrollAnimate();
+
   return (
     <section id="localizacion" className="py-20 md:py-28 bg-sand">
       <div className="mx-auto max-w-5xl px-4">
-        <div className="text-center mb-14">
+        <div
+          ref={titleRef}
+          className={`text-center mb-14 ${titleVisible ? "anim-fade-up" : "scroll-hidden"}`}
+        >
           <p className="text-primary text-sm tracking-[0.25em] uppercase mb-4 font-sans font-medium">
             Localización
           </p>
@@ -13,8 +22,10 @@ export default function LocationSection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-10 items-start">
-          {/* Info */}
-          <div className="space-y-6">
+          <div
+            ref={infoRef}
+            className={`space-y-6 ${infoVisible ? "anim-fade-left" : "scroll-hidden"}`}
+          >
             <div>
               <h3 className="font-serif text-xl text-foreground mb-2">Dirección</h3>
               <p className="text-muted-foreground leading-relaxed">
@@ -36,8 +47,10 @@ export default function LocationSection() {
             </div>
           </div>
 
-          {/* Simulated map */}
-          <div className="rounded-xl overflow-hidden border border-border bg-card aspect-[4/3] flex items-center justify-center relative">
+          <div
+            ref={mapRef}
+            className={`rounded-xl overflow-hidden border border-border bg-card aspect-[4/3] flex items-center justify-center relative ${mapVisible ? "anim-fade-right" : "scroll-hidden"}`}
+          >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-sand to-primary/10" />
             <div className="relative text-center p-6">
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
