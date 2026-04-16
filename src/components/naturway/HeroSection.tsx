@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/button";
+import { useScrollAnimate } from "@/hooks/use-scroll-animate";
 import heroImg from "@/assets/hero-field.jpg";
 
 export default function HeroSection() {
+  const { ref, isVisible } = useScrollAnimate(0.1);
+
   return (
     <section id="inicio" className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
-      {/* Background image */}
       <img
         src={heroImg}
         alt="Campo ecológico al amanecer"
@@ -12,11 +14,12 @@ export default function HeroSection() {
         width={1920}
         height={1080}
       />
-      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-foreground/50 via-foreground/30 to-foreground/60" />
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
+      <div
+        ref={ref}
+        className={`relative z-10 text-center px-4 max-w-3xl mx-auto ${isVisible ? "anim-fade-up" : "scroll-hidden"}`}
+      >
         <p className="text-sand/80 text-sm tracking-[0.3em] uppercase mb-4 font-sans">
           Tienda de comida ecológica
         </p>

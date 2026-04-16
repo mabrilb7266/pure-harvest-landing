@@ -1,5 +1,6 @@
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import { useScrollAnimate } from "@/hooks/use-scroll-animate";
 import huertoImg from "@/assets/category-huerto.jpg";
 import granoImg from "@/assets/category-grano.jpg";
 import elixiresImg from "@/assets/category-elixires.jpg";
@@ -75,9 +76,14 @@ function ProductCard({ product }: { product: Product }) {
   );
 }
 
-function CategoryCard({ category }: { category: Category }) {
+function CategoryCard({ category, delay }: { category: Category; delay: number }) {
+  const { ref, isVisible } = useScrollAnimate();
+
   return (
-    <div className="bg-card rounded-xl overflow-hidden shadow-sm border border-border hover:shadow-md transition-shadow duration-300">
+    <div
+      ref={ref}
+      className={`bg-card rounded-xl overflow-hidden shadow-sm border border-border hover:shadow-md transition-shadow duration-300 ${isVisible ? `anim-scale anim-delay-${delay}` : "scroll-hidden"}`}
+    >
       <div className="relative h-48 overflow-hidden">
         <img
           src={category.image}
@@ -103,10 +109,15 @@ function CategoryCard({ category }: { category: Category }) {
 }
 
 export default function ShopSection() {
+  const { ref, isVisible } = useScrollAnimate();
+
   return (
     <section id="productos" className="py-20 md:py-28 bg-background">
       <div className="mx-auto max-w-7xl px-4">
-        <div className="text-center mb-14">
+        <div
+          ref={ref}
+          className={`text-center mb-14 ${isVisible ? "anim-fade-up" : "scroll-hidden"}`}
+        >
           <p className="text-primary text-sm tracking-[0.25em] uppercase mb-4 font-sans font-medium">
             Nuestra cosecha
           </p>
@@ -116,8 +127,8 @@ export default function ShopSection() {
           <div className="w-16 h-px bg-primary mx-auto mt-6" />
         </div>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {categories.map((cat) => (
-            <CategoryCard key={cat.title} category={cat} />
+          {categories.map((cat, i) => (
+            <CategoryCard key={cat.title} category={cat} delay={i + 1} />
           ))}
         </div>
       </div>
